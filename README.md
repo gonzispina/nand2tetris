@@ -1,3 +1,3 @@
 # General purpose computer from the scratch
 
-This is the nand2tetris course repository
+Creating a computer to run a tetris from Nand :)
