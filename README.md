@@ -1,2 +1,3 @@
-# General Purpose computer from the scratch
+# General purpose computer from the scratch
 
+This is the nand2tetris course repository
