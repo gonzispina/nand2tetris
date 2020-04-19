@@ -1,1 +1,2 @@
-# nand2tetris
+# General Purpose computer from the scratch
+
