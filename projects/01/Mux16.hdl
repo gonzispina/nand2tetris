@@ -1,0 +1,107 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux16.hdl
+
+/**
+ * 16-bit multiplexor:
+ * for i = 0..15 out[i] = a[i] if sel == 0
+ *                        b[i] if sel == 1
+ */
+
+CHIP Mux16 {
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+    Not(in=sel, out=notsel);
+
+    And16(
+    	a=a,
+    	b[0]=notsel,
+    	b[1]=notsel,
+    	b[2]=notsel,
+    	b[3]=notsel,
+    	b[4]=notsel,
+    	b[5]=notsel,
+    	b[6]=notsel,
+    	b[7]=notsel,
+    	b[8]=notsel,
+    	b[9]=notsel,
+    	b[10]=notsel,
+    	b[11]=notsel,
+    	b[12]=notsel,
+    	b[13]=notsel,
+    	b[14]=notsel,
+    	b[15]=notsel,
+    	out[0]=asela0,
+    	out[1]=asela1,
+    	out[2]=asela2,
+    	out[3]=asela3,
+    	out[4]=asela4,
+    	out[5]=asela5,
+    	out[6]=asela6,
+    	out[7]=asela7,
+    	out[8]=asela8,
+    	out[9]=asela9,
+    	out[10]=asela10,
+    	out[11]=asela11,
+    	out[12]=asela12,
+    	out[13]=asela13,
+    	out[14]=asela14,
+    	out[15]=asela15
+    );
+
+    And16(
+    	a=b,
+    	b[0]=sel,
+    	b[1]=sel,
+    	b[2]=sel,
+    	b[3]=sel,
+    	b[4]=sel,
+    	b[5]=sel,
+    	b[6]=sel,
+    	b[7]=sel,
+    	b[8]=sel,
+    	b[9]=sel,
+    	b[10]=sel,
+    	b[11]=sel,
+    	b[12]=sel,
+    	b[13]=sel,
+    	b[14]=sel,
+    	b[15]=sel,
+    	out[0]=bselb0,
+    	out[1]=bselb1,
+    	out[2]=bselb2,
+    	out[3]=bselb3,
+    	out[4]=bselb4,
+    	out[5]=bselb5,
+    	out[6]=bselb6,
+    	out[7]=bselb7,
+    	out[8]=bselb8,
+    	out[9]=bselb9,
+    	out[10]=bselb10,
+    	out[11]=bselb11,
+    	out[12]=bselb12,
+    	out[13]=bselb13,
+    	out[14]=bselb14,
+    	out[15]=bselb15
+    );
+
+    Xor(a=asela0, b=bselb0, out=out[0]);
+    Xor(a=asela1, b=bselb1, out=out[1]);
+    Xor(a=asela2, b=bselb2, out=out[2]);
+    Xor(a=asela3, b=bselb3, out=out[3]);
+    Xor(a=asela4, b=bselb4, out=out[4]);
+    Xor(a=asela5, b=bselb5, out=out[5]);
+    Xor(a=asela6, b=bselb6, out=out[6]);
+    Xor(a=asela7, b=bselb7, out=out[7]);
+    Xor(a=asela8, b=bselb8, out=out[8]);
+    Xor(a=asela9, b=bselb9, out=out[9]);
+    Xor(a=asela10, b=bselb10, out=out[10]);
+    Xor(a=asela11, b=bselb11, out=out[11]);
+    Xor(a=asela12, b=bselb12, out=out[12]);
+    Xor(a=asela13, b=bselb13, out=out[13]);
+    Xor(a=asela14, b=bselb14, out=out[14]);
+    Xor(a=asela15, b=bselb15, out=out[15]);
+}
